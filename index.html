@@ -1,0 +1,391 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BookDrop Prototype SPA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/tabler-icons.min.css">
+</head>
+
+<body>
+    <!-- Login Modal -->
+    <div id="login-overlay" class="overlay hidden" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title">
+            <button id="login-close" class="modal-close" type="button" aria-label="Fechar">×</button>
+            <div id="login-panel">
+                <h2 id="login-modal-title">Entrar na BookDrop</h2>
+                <p>Crie uma conta ou faça login para postar promoções e salvar favoritos.</p>
+                <form id="login-form">
+                    <label>
+                        Nome de usuário
+                        <input id="login-username" type="text" placeholder="Seu nome de usuário" required minlength="3"
+                            maxlength="20">
+                    </label>
+                    <label>
+                        Senha
+                        <input id="login-password" type="password" placeholder="Sua senha" required minlength="4">
+                    </label>
+                    <button type="submit" class="action-btn">Entrar</button>
+                </form>
+                <p class="modal-note">Não tem uma conta? <a href="#" id="switch-to-register"
+                        style="color:#D85A30;text-decoration:none;font-weight:500;">Cadastre-se</a></p>
+            </div>
+            <div id="register-panel" class="hidden">
+                <h2 id="register-modal-title">Criar conta</h2>
+                <p>Junte-se à comunidade BookDrop e comece a compartilhar promoções!</p>
+                <form id="register-form">
+                    <label>
+                        Nome de usuário
+                        <input id="register-username" type="text" placeholder="Escolha um nome de usuário" required
+                            minlength="3" maxlength="20">
+                    </label>
+                    <label>
+                        E-mail
+                        <input id="register-email" type="email" placeholder="seu@email.com" required>
+                    </label>
+                    <label>
+                        Senha
+                        <input id="register-password" type="password" placeholder="Mínimo 4 caracteres" required
+                            minlength="4">
+                    </label>
+                    <label>
+                        Confirmar senha
+                        <input id="register-confirm" type="password" placeholder="Repita a senha" required>
+                    </label>
+                    <button type="submit" class="action-btn">Cadastrar</button>
+                </form>
+                <p class="modal-note">Já tem uma conta? <a href="#" id="switch-to-login"
+                        style="color:#D85A30;text-decoration:none;font-weight:500;">Fazer login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="phone-wrap">
+        <div class="phone">
+            <div class="notch">
+                <div class="notch-pill"></div>
+            </div>
+            <div class="screen" style="position:relative;">
+
+                <div class="topbar">
+                    <div class="logo-container">
+                        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="6" width="20" height="26" rx="3" fill="white" />
+                            <rect x="6" y="8" width="16" height="20" rx="2" fill="#D85A30" />
+                            <path d="M9 13H19M9 16H16M9 19H13" stroke="white" stroke-width="1.5"
+                                stroke-linecap="round" />
+                            <path d="M24 10L28 6L32 10L28 14L24 10Z" fill="#993C1D" />
+                            <circle cx="26" cy="12" r="3" fill="white" />
+                        </svg>
+                        <div class="logo-text">BookDrop<span class="logo-dot"></span></div>
+                    </div>
+                    <div class="topbar-icons">
+                        <button id="login-btn" class="topbar-btn" type="button" aria-label="Entrar">
+                            <i class="ti ti-login" aria-hidden="true"></i>
+                            <span>Entrar</span>
+                        </button>
+                        <button id="logout-btn" class="topbar-btn hidden" type="button" aria-label="Sair">
+                            <i class="ti ti-logout" aria-hidden="true"></i>
+                            <span>Sair</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="filter-bar">
+                    <button class="filter-pill active"><i class="ti ti-flame" style="font-size:12px"
+                            aria-hidden="true"></i> Todos</button>
+                    <button class="filter-pill inactive"><i class="ti ti-book" style="font-size:12px"
+                            aria-hidden="true"></i> Livros</button>
+                    <button class="filter-pill inactive">Mangás</button>
+                    <button class="filter-pill inactive">Quadrinhos</button>
+                    <button class="filter-pill inactive">Box sets</button>
+                </div>
+
+                <!-- Feed Section -->
+                <div id="feed-section" class="section active">
+                    <div id="feed-list" class="feed">
+
+                        <div class="section-label">Em destaque</div>
+
+                        <div class="deal-card hot">
+                            <div class="hot-label">
+                                <i class="ti ti-flame" style="font-size:12px" aria-hidden="true"></i> BOOKDROP DO DIA
+                            </div>
+                            <div class="deal-body">
+                                <div class="book-cover" style="background:#1a3a5c;">
+                                    <div class="book-spine" style="background:#112840;"></div>
+                                    <div class="book-title-on-cover">Duna</div>
+                                </div>
+                                <div class="deal-info">
+                                    <span class="deal-category">Ficção científica</span>
+                                    <div class="deal-title">Duna — Edição especial capa dura</div>
+                                    <div class="deal-author">Frank Herbert · Aleph</div>
+                                    <div class="price-row">
+                                        <span class="price-new">R$ 39,90</span>
+                                        <span class="price-old">R$ 89,90</span>
+                                        <span class="discount-badge">-56%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-meta">
+                                    <span class="meta-item"><i class="ti ti-clock" style="font-size:12px"
+                                            aria-hidden="true"></i> 2h atrás</span>
+                                    <span class="meta-item"><i class="ti ti-message" style="font-size:12px"
+                                            aria-hidden="true"></i> 14</span>
+                                </div>
+                                <div style="display:flex;gap:6px;align-items:center;">
+                                    <span class="store-badge">Amazon</span>
+                                    <button class="vote-btn"><i class="ti ti-arrow-big-up" style="font-size:14px"
+                                            aria-hidden="true"></i> <span>247</span></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-label">Mais recentes</div>
+
+                        <div class="deal-card">
+                            <div class="deal-body">
+                                <div class="book-cover" style="background:#6b1a2a;">
+                                    <div class="book-spine" style="background:#4a1020;"></div>
+                                    <div class="book-title-on-cover">Berserk Vol. 1</div>
+                                </div>
+                                <div class="deal-info">
+                                    <span class="deal-category">Mangá</span>
+                                    <div class="deal-title">Berserk — Vol. 1 ao 10</div>
+                                    <div class="deal-author">Kentaro Miura · Panini</div>
+                                    <div class="price-row">
+                                        <span class="price-new">R$ 22,50</span>
+                                        <span class="price-old">R$ 34,90</span>
+                                        <span class="discount-badge">-35%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-meta">
+                                    <span class="meta-item"><i class="ti ti-clock" style="font-size:12px"
+                                            aria-hidden="true"></i> 5h atrás</span>
+                                    <span class="meta-item"><i class="ti ti-message" style="font-size:12px"
+                                            aria-hidden="true"></i> 8</span>
+                                </div>
+                                <div style="display:flex;gap:6px;align-items:center;">
+                                    <span class="store-badge">Panini Shop</span>
+                                    <button class="vote-btn"><i class="ti ti-arrow-big-up" style="font-size:14px"
+                                            aria-hidden="true"></i> <span>89</span></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="deal-card">
+                            <div class="deal-body">
+                                <div class="book-cover" style="background:#2d4a1e;">
+                                    <div class="book-spine" style="background:#1e3214;"></div>
+                                    <div class="book-title-on-cover">Watchmen</div>
+                                </div>
+                                <div class="deal-info">
+                                    <span class="deal-category">HQ</span>
+                                    <div class="deal-title">Watchmen — Ed. Definitiva</div>
+                                    <div class="deal-author">Alan Moore · Panini</div>
+                                    <div class="price-row">
+                                        <span class="price-new">R$ 67,99</span>
+                                        <span class="price-old">R$ 119,90</span>
+                                        <span class="discount-badge">-43%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-meta">
+                                    <span class="meta-item"><i class="ti ti-clock" style="font-size:12px"
+                                            aria-hidden="true"></i> 7h atrás</span>
+                                    <span class="meta-item"><i class="ti ti-message" style="font-size:12px"
+                                            aria-hidden="true"></i> 31</span>
+                                </div>
+                                <div style="display:flex;gap:6px;align-items:center;">
+                                    <span class="store-badge">Amazon</span>
+                                    <button class="vote-btn"><i class="ti ti-arrow-big-up" style="font-size:14px"
+                                            aria-hidden="true"></i> <span>152</span></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="deal-card">
+                            <div class="deal-body">
+                                <div class="book-cover" style="background:#3d2a0e;">
+                                    <div class="book-spine" style="background:#2a1c08;"></div>
+                                    <div class="book-title-on-cover">Box GOT</div>
+                                </div>
+                                <div class="deal-info">
+                                    <span class="deal-category">Box set</span>
+                                    <div class="deal-title">Box Guerra dos Tronos — 5 vols.</div>
+                                    <div class="deal-author">George R. R. Martin · LeYa</div>
+                                    <div class="price-row">
+                                        <span class="price-new">R$ 149,90</span>
+                                        <span class="price-old">R$ 280,00</span>
+                                        <span class="discount-badge">-46%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-meta">
+                                    <span class="meta-item"><i class="ti ti-clock" style="font-size:12px"
+                                            aria-hidden="true"></i> 1d atrás</span>
+                                    <span class="meta-item"><i class="ti ti-message" style="font-size:12px"
+                                            aria-hidden="true"></i> 22</span>
+                                </div>
+                                <div style="display:flex;gap:6px;align-items:center;">
+                                    <span class="store-badge">Estante Virtual</span>
+                                    <button class="vote-btn"><i class="ti ti-arrow-big-up" style="font-size:14px"
+                                            aria-hidden="true"></i> <span>64</span></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div> <!-- End Feed Section -->
+
+                <!-- Buscar Section -->
+                <div id="buscar-section" class="section">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Buscar livros, Mangás...">
+                    </div>
+                    <div class="search-results">
+                        <div class="empty-state">
+                            <i class="ti ti-search" style="font-size:48px; color:#D85A30;"></i>
+                            <p>Busque por livros, autores ou categorias</p>
+                        </div>
+                    </div>
+                </div> <!-- End Buscar Section -->
+
+                <!-- Salvos Section -->
+                <div id="salvos-section" class="section">
+                    <div class="section-label" style="padding-left: 16px; padding-top: 16px;">Itens Salvos</div>
+                    <div class="feed">
+                        <div class="deal-card hot">
+                            <div class="hot-label">
+                                <i class="ti ti-heart" style="font-size:12px; fill:#D85A30;" aria-hidden="true"></i>
+                                SALVO
+                            </div>
+                            <div class="deal-body">
+                                <div class="book-cover" style="background:#1a3a5c;">
+                                    <div class="book-spine" style="background:#112840;"></div>
+                                    <div class="book-title-on-cover">Duna</div>
+                                </div>
+                                <div class="deal-info">
+                                    <span class="deal-category">Ficção científica</span>
+                                    <div class="deal-title">Duna — Edição especial capa dura</div>
+                                    <div class="deal-author">Frank Herbert · Aleph</div>
+                                    <div class="price-row">
+                                        <span class="price-new">R$ 39,90</span>
+                                        <span class="price-old">R$ 89,90</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="deal-footer">
+                                <span class="store-badge">Amazon</span>
+                                <button class="vote-btn"><i class="ti ti-arrow-big-up" style="font-size:14px"
+                                        aria-hidden="true"></i> <span>247</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End Salvos Section -->
+
+                <!-- Perfil Section -->
+                <div id="perfil-section" class="section">
+                    <div class="perfil-container">
+                        <div class="perfil-header">
+                            <div class="perfil-avatar">👤</div>
+                            <div class="perfil-info">
+                                <h2 id="profile-name">Usuário BookDrop</h2>
+                                <p id="profile-handle">@usuario.bookdrop</p>
+                            </div>
+                        </div>
+                        <div class="perfil-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">12</div>
+                                <div class="stat-label">Postagens</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">247</div>
+                                <div class="stat-label">Seguidores</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">89</div>
+                                <div class="stat-label">Seguindo</div>
+                            </div>
+                        </div>
+                        <div class="perfil-bio">
+                            <h3>Bio</h3>
+                            <p>Apaixonado por livros, mangás e histórias incríveis. Sempre em busca de boas ofertas! 📚✨
+                            </p>
+                        </div>
+                        <div class="perfil-section">
+                            <h3>Últimas Postagens</h3>
+                            <div id="user-posts"
+                                style="padding: 12px; text-align:center; color:#888780; font-size:12px;">
+                                Nenhuma postagem ainda
+                            </div>
+                        </div>
+                        <div class="perfil-section" style="margin-top:16px;">
+                            <button id="profile-logout-btn" class="action-btn" style="background:#dc3545;width:100%;"
+                                type="button">
+                                <i class="ti ti-logout" style="font-size:14px;" aria-hidden="true"></i> Sair da conta
+                            </button>
+                        </div>
+                    </div>
+                </div> <!-- End Perfil Section -->
+
+                <div class="bottomnav">
+                    <div class="nav-item active">
+                        <i class="ti ti-home" aria-hidden="true"></i>
+                        <span>Feed</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="ti ti-search" aria-hidden="true"></i>
+                        <span>Buscar</span>
+                    </div>
+                    <div class="nav-item" data-action="post">
+                        <i class="ti ti-plus"
+                            style="font-size:22px;background:#D85A30;color:white;border-radius:10px;padding:2px 6px;"
+                            aria-hidden="true"></i>
+                        <span style="color:#D85A30;font-weight:500;">Postar</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="ti ti-heart" aria-hidden="true"></i>
+                        <span>Salvos</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="ti ti-user" aria-hidden="true"></i>
+                        <span>Perfil</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay hidden" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close" type="button" aria-label="Fechar">×</button>
+
+            <div id="promo-panel">
+                <h2 id="modal-title">Insira a URL com a promoção</h2>
+                <p>Cole o link do produto e crie a promoção diretamente no feed.</p>
+                <form id="promo-form">
+                    <label>
+                        Link da promoção
+                        <input id="post-link" type="url" placeholder="Cole o link do produto aqui" required>
+                    </label>
+                    <button type="submit" class="action-btn">Criar promoção</button>
+                </form>
+                <p class="modal-note">Cole um link de compra e o sistema tentará extrair título, loja, preço, desconto e
+                    imagem automaticamente.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
