@@ -402,6 +402,25 @@ function filterChange(el) {
     });
     el.classList.remove('inactive');
     el.classList.add('active');
+
+    // Aplicar filtro nos cards
+    const selectedCategory = el.dataset.category;
+    const dealCards = document.querySelectorAll('.deal-card');
+    
+    dealCards.forEach(card => {
+        const cardCategory = card.querySelector('.deal-category')?.textContent.trim();
+        
+        if (selectedCategory === 'all') {
+            // Mostrar todos os cards
+            card.style.display = '';
+        } else if (cardCategory === selectedCategory) {
+            // Mostrar apenas cards que correspondem à categoria selecionada
+            card.style.display = '';
+        } else {
+            // Ocultar cards que não correspondem
+            card.style.display = 'none';
+        }
+    });
 }
 
 function vote(btn) {

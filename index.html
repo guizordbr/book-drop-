@@ -70,14 +70,18 @@
 
                 <div class="topbar">
                     <div class="logo-container">
-                        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"
+                        <svg class="logo-icon" width="40" height="32" viewBox="0 0 80 60" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
-                            <rect x="4" y="6" width="20" height="26" rx="3" fill="white" />
-                            <rect x="6" y="8" width="16" height="20" rx="2" fill="#D85A30" />
-                            <path d="M9 13H19M9 16H16M9 19H13" stroke="white" stroke-width="1.5"
-                                stroke-linecap="round" />
-                            <path d="M24 10L28 6L32 10L28 14L24 10Z" fill="#993C1D" />
-                            <circle cx="26" cy="12" r="3" fill="white" />
+                            <!-- Left page curves in white -->
+                            <path d="M 12 45 Q 8 38 10 25" stroke="white" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                            <path d="M 18 47 Q 12 38 14 22" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+                            <path d="M 24 48 Q 18 39 20 20" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                            <!-- Center spine in white -->
+                            <rect x="26" y="20" width="2.5" height="28" fill="white" rx="1.2"/>
+                            <!-- Right page curves in white -->
+                            <path d="M 30 48 Q 36 39 34 20" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                            <path d="M 36 47 Q 42 38 40 22" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+                            <path d="M 42 45 Q 48 38 46 25" stroke="white" stroke-width="3.5" stroke-linecap="round" fill="none"/>
                         </svg>
                         <div class="logo-text">BookDrop<span class="logo-dot"></span></div>
                     </div>
@@ -94,13 +98,13 @@
                 </div>
 
                 <div class="filter-bar">
-                    <button class="filter-pill active"><i class="ti ti-flame" style="font-size:12px"
+                    <button class="filter-pill active" data-category="all"><i class="ti ti-flame" style="font-size:12px"
                             aria-hidden="true"></i> Todos</button>
-                    <button class="filter-pill inactive"><i class="ti ti-book" style="font-size:12px"
+                    <button class="filter-pill inactive" data-category="Livro"><i class="ti ti-book" style="font-size:12px"
                             aria-hidden="true"></i> Livros</button>
-                    <button class="filter-pill inactive">Mangás</button>
-                    <button class="filter-pill inactive">Quadrinhos</button>
-                    <button class="filter-pill inactive">Box sets</button>
+                    <button class="filter-pill inactive" data-category="Mangá">Mangás</button>
+                    <button class="filter-pill inactive" data-category="HQ">Quadrinhos</button>
+                    <button class="filter-pill inactive" data-category="Box set">Box sets</button>
                 </div>
 
                 <!-- Feed Section -->
@@ -119,7 +123,7 @@
                                     <div class="book-title-on-cover">Duna</div>
                                 </div>
                                 <div class="deal-info">
-                                    <span class="deal-category">Ficção científica</span>
+                                    <span class="deal-category">Livro</span>
                                     <div class="deal-title">Duna — Edição especial capa dura</div>
                                     <div class="deal-author">Frank Herbert · Aleph</div>
                                     <div class="price-row">
@@ -273,7 +277,7 @@
                                     <div class="book-title-on-cover">Duna</div>
                                 </div>
                                 <div class="deal-info">
-                                    <span class="deal-category">Ficção científica</span>
+                                    <span class="deal-category">Livro</span>
                                     <div class="deal-title">Duna — Edição especial capa dura</div>
                                     <div class="deal-author">Frank Herbert · Aleph</div>
                                     <div class="price-row">
