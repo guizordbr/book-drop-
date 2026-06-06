@@ -1,0 +1,51 @@
+/* ========================================
+   FILTER BAR STYLES
+   ======================================== */
+
+.filter-bar {
+    background: var(--color-primary);
+    padding: 0 var(--spacing-md) var(--spacing-md);
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    flex-shrink: 0;
+}
+
+#buscar-section .filter-bar,
+#salvos-section .filter-bar,
+#perfil-section .filter-bar {
+    display: none;
+}
+
+.filter-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-pill {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    transition: all var(--transition-fast);
+}
+
+.filter-pill.active {
+    background: white;
+    color: var(--color-primary-dark);
+}
+
+.filter-pill.inactive {
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.filter-pill.inactive:hover {
+    background: rgba(255, 255, 255, 0.3);
+}

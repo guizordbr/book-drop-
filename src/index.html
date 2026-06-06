@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookDrop Prototype SPA</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/tabler-icons.min.css">
 </head>
 
@@ -389,18 +390,7 @@
         </div>
     </div>
 
-    <!-- 
-        ⚠️ VERSÃO LEGADA - Use src/index.html em vez disso!
-        
-        Esta é a versão original mantida para compatibilidade.
-        A versão modularizada está em: src/index.html
-        
-        Para usar a versão nova:
-        1. Abra src/index.html em um servidor local
-        2. python -m http.server 8000
-        3. http://localhost:8000/src/
-    -->
-    <script src="script.js"></script>
+    <script type="module" src="js/app.js"></script>
 </body>
 
 </html>

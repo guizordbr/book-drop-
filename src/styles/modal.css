@@ -1,0 +1,177 @@
+/* ========================================
+   MODAL & OVERLAY STYLES
+   ======================================== */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--color-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    z-index: var(--z-overlay);
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+.modal {
+    width: min(420px, 100%);
+    max-width: 420px;
+    max-height: min(80vh, 560px);
+    overflow-y: auto;
+    background: var(--color-bg-white);
+    border-radius: var(--radius-xl);
+    padding: 24px;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+.modal h2 {
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: var(--color-text-dark);
+}
+
+.modal p {
+    margin-bottom: 14px;
+    color: #666;
+    font-size: 14px;
+}
+
+.modal form {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.modal label {
+    display: grid;
+    gap: 6px;
+    font-size: 12px;
+    color: #444;
+}
+
+.modal input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: var(--radius-lg);
+    font-size: 14px;
+    outline: none;
+    font-family: inherit;
+}
+
+.modal input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(216, 90, 48, 0.12);
+}
+
+.modal-note {
+    color: #666;
+    font-size: 13px;
+    margin-top: var(--spacing-md);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Login Modal */
+#login-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--color-overlay-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    z-index: var(--z-modal-login);
+    backdrop-filter: blur(2px);
+}
+
+#login-overlay.hidden {
+    display: none;
+}
+
+#login-overlay .modal {
+    width: min(420px, 100%);
+    max-height: min(90vh, 600px);
+    overflow-y: auto;
+    background: var(--color-bg-white);
+    border-radius: var(--radius-xl);
+    padding: 28px 24px 24px;
+    box-shadow: var(--shadow-2xl);
+    position: relative;
+}
+
+#login-overlay .modal::-webkit-scrollbar {
+    width: 6px;
+}
+
+#login-overlay .modal::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 3px;
+}
+
+#login-overlay .modal h2 {
+    font-size: 22px;
+    color: var(--color-text-dark);
+    margin-bottom: 6px;
+}
+
+#login-overlay .modal > p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 16px;
+}
+
+#login-overlay .modal form {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+#login-overlay .modal label {
+    display: grid;
+    gap: 5px;
+    font-size: 12px;
+    color: #444;
+    font-weight: 500;
+}
+
+#login-overlay .modal input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #D8D5CE;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    outline: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    font-family: inherit;
+}
+
+#login-overlay .modal input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(216, 90, 48, 0.12);
+}
+
+#login-overlay .modal input::placeholder {
+    color: var(--color-text-light);
+}
+
+#login-overlay .action-btn {
+    margin-top: 4px;
+    font-size: 14px;
+}

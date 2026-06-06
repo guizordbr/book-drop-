@@ -1,0 +1,63 @@
+/* ========================================
+   LAYOUT & BASE STYLES
+   ======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--color-bg-light);
+    font-family: var(--font-family);
+    color: var(--color-text-dark);
+}
+
+/* Phone Frame */
+.phone-wrap {
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    border-radius: var(--radius-lg);
+}
+
+.phone {
+    width: 420px;
+    background: var(--color-bg-light);
+    border-radius: 40px;
+    border: 8px solid #2C2C2A;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+}
+
+.notch {
+    background: #2C2C2A;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: var(--z-notch);
+}
+
+.notch-pill {
+    width: 80px;
+    height: 10px;
+    background: #1a1a18;
+    border-radius: var(--radius-full);
+}
+
+.screen {
+    background: var(--color-bg-light);
+    min-height: 800px;
+    max-height: 800px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}

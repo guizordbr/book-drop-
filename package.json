@@ -1,0 +1,24 @@
+{
+  "name": "bookdrop-prototype",
+  "version": "1.0.0",
+  "description": "BookDrop - Platform de compartilhamento de promoções de livros",
+  "type": "module",
+  "main": "src/js/app.js",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "npx http-server -p 8000",
+    "build": "echo 'Build not configured yet'",
+    "test": "echo 'Tests not configured yet'"
+  },
+  "keywords": [
+    "bookdrop",
+    "livros",
+    "promoções",
+    "spa",
+    "javascript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
